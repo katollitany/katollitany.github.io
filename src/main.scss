@@ -3,6 +3,7 @@ body {
   padding: 50px;
   font: 20px Helvetica, sans-serif;
   color: #333;
+  background-color: #357e9f;
 }
 h1 {
   font-size: 36px;
@@ -22,17 +23,28 @@ a:hover {
   color: #333;
   text-decoration: none;
 }
-// .grid {
-//   display: flex;
-//   width: 90%;
-//   flex-wrap: wrap;
-// }
+
 .reset {
-  margin-top: 10px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-top: 1px;
+  margin-left: 187px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
 }
 .grid {
   display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #2196f3;
+  grid-template-columns: 140px 140px 140px;
   padding: 10px;
+}
+
+.status {
+  font-size: x-large;
+  margin-left: 145px;
+  color: rgb(255, 255, 255);
 }
