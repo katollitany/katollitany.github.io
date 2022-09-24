@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./square.scss";
+
 export default function Square(props) {
   function toggle() {
     if (props.value) return;
