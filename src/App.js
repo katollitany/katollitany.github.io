@@ -76,6 +76,7 @@ export default function App() {
   const fullGrid = xArrayFull || oArryaFull;
 
   function getStatus() {
+    return "tie";
     console.log(isXWon);
     if (isXWon) {
       return "Winner: X";
@@ -91,7 +92,7 @@ export default function App() {
   // console.log({ isXWon, isOWon });
 
   return (
-    <div id="article">
+    <div className="main">
       <div className="status">{getStatus()}</div>
       <div className="grid">
         {squares.map((square) => {

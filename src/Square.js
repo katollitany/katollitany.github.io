@@ -12,9 +12,9 @@ export default function Square(props) {
 
   let squareClass = "";
   if (props.value === "X") {
-    squareClass = "_square_x";
+    squareClass = " square__text--x";
   } else if (props.value === "O") {
-    squareClass = "_square_o";
+    squareClass = " square__text--o";
   }
 
   return (

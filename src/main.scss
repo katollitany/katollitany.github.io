@@ -5,46 +5,42 @@ body {
   color: #333;
   background-color: #357e9f;
 }
+
 h1 {
   font-size: 36px;
 }
 
-#article {
+.main {
   display: block;
   text-align: left;
   width: auto;
   margin: 0 auto;
 }
-a {
-  color: #dc8100;
-  text-decoration: none;
-}
-a:hover {
-  color: #333;
-  text-decoration: none;
-}
 
 .reset {
   background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  margin-top: 1px;
-  margin-left: 187px;
   font-weight: 700;
   color: rgb(255, 255, 255);
+  margin-left: 50%;
+  border: 3px solid;
+  padding: 3px;
+  margin-top: 10px;
 }
+
 .grid {
   display: grid;
   grid-template-columns: 140px 140px 140px;
-  padding: 10px;
+  padding-left: 39%;
 }
 
 .status {
-  font-size: x-large;
-  margin-left: 145px;
+  font-size: xx-large;
+  font-weight: 700;
   color: rgb(255, 255, 255);
+  margin-left: 45%;
+  padding-bottom: 15px;
+  margin-top: 10px;
 }
