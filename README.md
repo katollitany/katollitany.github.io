@@ -8,8 +8,14 @@
 4. If neither player has a straight line of 3 marks, it's a tie.
 5. When all 9 squares are full, the game is over.
 
-## Languages used
+## Tech used
 
-1. SCSS
-2. Javascripts e.g. functions and arrays 
-3. React e.g. React Hooks and Props
+- SCSS
+- Javascript
+- React e.g. React Hooks and Props
+- React Scripts
+- Create ReactApp
+
+
+
+
