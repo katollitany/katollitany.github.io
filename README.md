@@ -1,7 +1,7 @@
 
 # Tic-Tac-Toe 
 
-## Rules: 
+## Rules
 1. The game is played on a 3 by 3 grid
 2. It's a two player game 
 3. First player is always X and second player is always O. Each player take turns putting their marks in empty squares.
