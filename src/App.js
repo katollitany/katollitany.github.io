@@ -3,17 +3,8 @@ import React from "react";
 import Square from "./Square.js";
 import "./main.scss";
 
-const squares = [
-  { id: 0 },
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
-  { id: 4 },
-  { id: 5 },
-  { id: 6 },
-  { id: 7 },
-  { id: 8 },
-];
+const squares = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+
 const winnerArrays = [
   [0, 1, 2],
   [0, 3, 6],
@@ -24,7 +15,6 @@ const winnerArrays = [
   [6, 7, 8],
   [2, 4, 6],
 ];
-//every() reads everything in linear order so the first number has to be slected first in order for the other digits to be registered
 
 export default function App() {
   const [player, setPlayer] = React.useState("X");
@@ -38,6 +28,10 @@ export default function App() {
   }
 
   function onSquareClick(id) {
+    if (isXWon || isOWon) {
+      return;
+    }
+
     if (player === "X") {
       setXArray((currentState) => [...currentState, id]);
     }
@@ -67,7 +61,6 @@ export default function App() {
   winnerArrays.forEach(function (winnerArray) {
     isXWon = isXWon ? isXWon : winnerArray.every(xWinner);
     isOWon = isOWon ? isOWon : winnerArray.every(oWinner);
-    console.log("inside", { isXWon, isOWon });
   });
 
   const isTied = !isXWon && !isOWon;
@@ -76,8 +69,6 @@ export default function App() {
   const fullGrid = xArrayFull || oArryaFull;
 
   function getStatus() {
-    return "tie";
-    console.log(isXWon);
     if (isXWon) {
       return "Winner: X";
     } else if (isOWon) {
@@ -89,21 +80,20 @@ export default function App() {
     }
   }
 
-  // console.log({ isXWon, isOWon });
-
   return (
     <div className="main">
       <div className="status">{getStatus()}</div>
       <div className="grid">
         {squares.map((square) => {
-          const isX = xArray.includes(square.id);
-          const isO = oArray.includes(square.id);
+          const isX = xArray.includes(square);
+          const isO = oArray.includes(square);
           const value = isX ? "X" : isO ? "O" : "";
+          // console.log({ isX, isO, square });
 
           return (
             <Square
-              key={square.id}
-              id={square.id}
+              key={square}
+              id={square}
               value={value}
               onSquareClick={onSquareClick}
             />

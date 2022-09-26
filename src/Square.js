@@ -3,14 +3,13 @@ import React from "react";
 import "./square.scss";
 
 export default function Square(props) {
+  let squareClass = "";
+
   function toggle() {
     if (props.value) return;
     props.onSquareClick(props.id);
   }
 
-  // const squareClass = props.value === "X" ? "square_x" : ""
-
-  let squareClass = "";
   if (props.value === "X") {
     squareClass = " square__text--x";
   } else if (props.value === "O") {
