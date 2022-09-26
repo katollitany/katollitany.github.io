@@ -88,7 +88,6 @@ export default function App() {
           const isX = xArray.includes(square);
           const isO = oArray.includes(square);
           const value = isX ? "X" : isO ? "O" : "";
-          // console.log({ isX, isO, square });
 
           return (
             <Square
