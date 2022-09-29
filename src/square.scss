@@ -26,17 +26,14 @@ $largemobile: 425px;
 
 .square {
   border: 9px solid rgba(255, 255, 255, 0.8);
-  font-size: 100px;
+  font-size: 50px;
   text-align: center;
 
-  @media screen and (max-width: $smallmobile) {
-    font-size: 50px;
+  @media screen and (min-width: $smallmobile) and (max-width: $mediummobile) {
     width: 100px;
     height: 100px;
   }
-  @media screen and (min-width: $mediummobile) {
-    font-size: 50px;
-  }
+
   @media screen and (min-width: $largemobile) {
     height: 110px;
   }
@@ -45,10 +42,11 @@ $largemobile: 425px;
     height: 60px;
     font-weight: 700;
 
-    @media screen and (min-width: $smallmobile) and (max-width: 425px) {
+    @media screen and (min-width: $smallmobile) and (max-width: $largemobile) {
       margin: 10px 0px;
       font-size: 40px;
     }
+
     &--o {
       color: #32cd32;
       @media screen and (min-width: $smallmobile) {
@@ -66,17 +64,18 @@ $largemobile: 425px;
     }
     &--x {
       color: #ffa500;
-      @media screen and (min-width: $smallmobile) {
+      font-size: larger;
+
+      @media screen and (min-width: $smallmobile) and (max-width: $mediummobile) {
         margin: 10px 0px;
-        font-size: larger;
       }
-      @media screen and (min-width: $mediummobile) {
+
+      @media screen and (min-width: $mediummobile) and (max-width: $largemobile) {
         margin: 10px 0px 0px 0px;
-        font-size: larger;
       }
+
       @media screen and (min-width: $largemobile) {
         margin: 20px 0px 0px 0px;
-        font-size: larger;
       }
     }
   }
