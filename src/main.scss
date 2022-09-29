@@ -1,13 +1,26 @@
+$mobile: 320px;
+$mediummobile: 375px;
+$largemobile: 425px;
+
 body {
   text-align: center;
   padding: 50px;
   font: 20px Helvetica, sans-serif;
   color: #333;
   background-color: #357e9f;
+
+  @media screen and (min-width: $mobile) and (max-width: 425px) {
+    background-color: #fed8b1;
+    padding: 10px;
+  }
 }
 
 h1 {
   font-size: 36px;
+
+  @media screen and (min-width: $mobile) and (max-width: 425px) {
+    font-size: 16px;
+  }
 }
 
 .main {
@@ -15,6 +28,12 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+
+  @media screen and (min-width: $mobile) {
+    margin-right: 10px;
+    height: 50%;
+  }
 }
 
 .reset {
@@ -29,9 +48,19 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: 140px 140px 140px;
-}
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 90%;
+  flex: 1;
 
+  @media screen and (min-width: $mobile) {
+    display: grid;
+    width: 100%;
+  }
+  @media screen and (min-width: $mediummobile) {
+    display: grid;
+    width: 80%;
+  }
+}
 .status {
   font-size: xx-large;
   font-weight: 700;

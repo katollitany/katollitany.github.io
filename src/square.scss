@@ -1,3 +1,7 @@
+$smallmobile: 320px;
+$mediummobile: 375px;
+$largemobile: 425px;
+
 .square:nth-child(3),
 .square:nth-child(6) {
   border-left: none;
@@ -22,19 +26,58 @@
 
 .square {
   border: 9px solid rgba(255, 255, 255, 0.8);
-  font-size: 60px;
+  font-size: 100px;
   text-align: center;
+
+  @media screen and (max-width: $smallmobile) {
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+  }
+  @media screen and (min-width: $mediummobile) {
+    font-size: 50px;
+  }
+  @media screen and (min-width: $largemobile) {
+    height: 110px;
+  }
 
   &__text {
     height: 60px;
     font-weight: 700;
-    margin: 10px 0px;
 
+    @media screen and (min-width: $smallmobile) and (max-width: 425px) {
+      margin: 10px 0px;
+      font-size: 40px;
+    }
     &--o {
       color: #32cd32;
+      @media screen and (min-width: $smallmobile) {
+        margin: 10px 0px;
+        font-size: larger;
+      }
+      @media screen and (min-width: $mediummobile) {
+        margin: 10px 0px 0px 0px;
+        font-size: larger;
+      }
+      @media screen and (min-width: $largemobile) {
+        margin: 20px 0px 0px 0px;
+        font-size: larger;
+      }
     }
     &--x {
       color: #ffa500;
+      @media screen and (min-width: $smallmobile) {
+        margin: 10px 0px;
+        font-size: larger;
+      }
+      @media screen and (min-width: $mediummobile) {
+        margin: 10px 0px 0px 0px;
+        font-size: larger;
+      }
+      @media screen and (min-width: $largemobile) {
+        margin: 20px 0px 0px 0px;
+        font-size: larger;
+      }
     }
   }
 }
