@@ -20,6 +20,8 @@ export default function App() {
   const [player, setPlayer] = React.useState("X");
   const [xArray, setXArray] = React.useState([]);
   const [oArray, setOArray] = React.useState([]);
+
+  console.log("rendering component");
   let isXWon = false;
   let isOWon = false;
 
@@ -58,10 +60,19 @@ export default function App() {
     return oWinnerIsWon;
   }
 
-  winnerArrays.forEach(function (winnerArray) {
-    isXWon = isXWon ? isXWon : winnerArray.every(xWinner);
-    isOWon = isOWon ? isOWon : winnerArray.every(oWinner);
-  });
+  React.useEffect(() => {
+    console.log("running x loop");
+    winnerArrays.forEach(function (winnerArray) {
+      isXWon = isXWon ? isXWon : winnerArray.every(xWinner);
+    });
+  }, [xArray]);
+
+  React.useEffect(() => {
+    console.log("running o loop");
+    winnerArrays.forEach(function (winnerArray) {
+      isOWon = isOWon ? isOWon : winnerArray.every(oWinner);
+    });
+  }, [oArray]);
 
   const isTied = !isXWon && !isOWon;
   const xArrayFull = xArray.length > 4;
