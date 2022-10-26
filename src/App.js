@@ -1,5 +1,8 @@
 import React from "react";
 
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
+
 import Square from "./Square.js";
 import "./main.scss";
 
@@ -20,8 +23,8 @@ export default function App() {
   const [player, setPlayer] = React.useState("X");
   const [xArray, setXArray] = React.useState([]);
   const [oArray, setOArray] = React.useState([]);
+  const { width, height } = useWindowSize();
 
-  console.log("rendering component");
   let isXWon = false;
   let isOWon = false;
 
@@ -57,22 +60,17 @@ export default function App() {
 
   function oWinner(winnerItem) {
     const oWinnerIsWon = oArray.includes(winnerItem);
+
     return oWinnerIsWon;
   }
 
-  React.useEffect(() => {
-    console.log("running x loop");
-    winnerArrays.forEach(function (winnerArray) {
-      isXWon = isXWon ? isXWon : winnerArray.every(xWinner);
-    });
-  }, [xArray]);
+  winnerArrays.forEach(function (winnerArray) {
+    isXWon = isXWon ? isXWon : winnerArray.every(xWinner);
+  });
 
-  React.useEffect(() => {
-    console.log("running o loop");
-    winnerArrays.forEach(function (winnerArray) {
-      isOWon = isOWon ? isOWon : winnerArray.every(oWinner);
-    });
-  }, [oArray]);
+  winnerArrays.forEach(function (winnerArray) {
+    isOWon = isOWon ? isOWon : winnerArray.every(oWinner);
+  });
 
   const isTied = !isXWon && !isOWon;
   const xArrayFull = xArray.length > 4;
@@ -92,27 +90,29 @@ export default function App() {
   }
 
   return (
-    <div className="main">
-      <div className="status">{getStatus()}</div>
-      <div className="grid">
-        {squares.map((square) => {
-          const isX = xArray.includes(square);
-          const isO = oArray.includes(square);
-          const value = isX ? "X" : isO ? "O" : "";
-
-          return (
-            <Square
-              key={square}
-              id={square}
-              value={value}
-              onSquareClick={onSquareClick}
-            />
-          );
-        })}
+    <div>
+      {(isXWon || isOWon) && <Confetti width={width} height={height} />}
+      <div className="main">
+        <div className="status">{getStatus()}</div>
+        <div className="grid">
+          {squares.map((square) => {
+            const isX = xArray.includes(square);
+            const isO = oArray.includes(square);
+            const value = isX ? "X" : isO ? "O" : "";
+            return (
+              <Square
+                key={square}
+                id={square}
+                value={value}
+                onSquareClick={onSquareClick}
+              />
+            );
+          })}
+        </div>
+        <button onClick={refresh} className="reset">
+          Reset
+        </button>
       </div>
-      <button onClick={refresh} className="reset">
-        Reset
-      </button>
     </div>
   );
 }
