@@ -29,8 +29,7 @@ $largemobile: 425px;
   font-size: 50px;
   text-align: center;
 
-  @media screen and (min-width: $smallmobile) and (max-width: $mediummobile) {
-    width: 100px;
+  @media screen and (min-width: $mediummobile) and (max-width: $mediummobile) {
     height: 100px;
   }
 
